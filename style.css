@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: repeating-linear-gradient(to right, rgb(255, 60, 0), rgb(247, 119, 0));
+}
+
+#myinput {
+    margin: 100px auto 20px auto;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#myoutput {
+    margin: 10px auto 20px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin: 10px auto 20px auto;
+    background-image: linear-gradient(to left, rgb(149, 255, 11), rgb(60, 255, 0));
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#result {
+    color: white;
+    font-size: 25px;
+    margin:
+}
