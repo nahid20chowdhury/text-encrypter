@@ -1,138 +1,384 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON</title>
+    <title>Encryption</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>JSON</h1>
-    <h2>JavaScript Object Notation</h2>
-    <ul id="users-container">
-
-    </ul>
-    <input id="title" type="text" placeholder="title">
-    <br>
-    <br>
-    <input id="body-content" type="text" placeholder="Post er main jinis">
-    <br>
-    <br>
-    <button id="submit">Submit</button>
+    <input placeholder="your message" id="myinput">
+    <button onclick="encrypt()">Encrypt</button>
+    <!-- <div id="result"></div> -->
+    <input placeholder="your code" id="myoutput">
+    <button onclick="Decrypt()">Decrypt</button>
+    <!-- <div id="result"></div> -->
     <script>
-        document.getElementById("submit").addEventListener("click", function() {
-            const title = document.getElementById("title").value;
-            const bodyContent = document.getElementById("body-content").value;
-            const post = {
-                title: title,
-                body: bodyContent
-            };
-            nowPostToServer(post);
-        })
-
-        function nowPostToServer(postInfo) {
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-                    method: 'POST',
-                    body: JSON.stringify(postInfo),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
+        function encrypt() {
+            var rawtext = document.getElementById("myinput").value
+            var tempText = "";
+            for (let i = 0; i < rawtext.length; i++) {
+                tempText += enc(rawtext[i])
+            }
+            document.getElementById("myinput").value = tempText;
         }
 
-        function displayUser(users) {
-            const userNames = users.map(user => user.username);
-            const ul = document.getElementById("users-container")
+        function Decrypt() {
+            var rawtext = document.getElementById("myoutput").value
+            var tempText = "";
+            for (let i = 0; i < rawtext.length; i++) {
+                tempText += dec(rawtext[i])
+            }
+            document.getElementById("myoutput").value = tempText;
+        }
 
-            for (let i = 0; i < userNames.length; i++) {
-                const username = userNames[i]
-                const li = document.createElement("li")
-                li.innerText = username
-                ul.appendChild(li)
+        function enc(x) {
+            switch (x) {
+                // case "1":
+                //     return "g";
+                //     break;
+                // case "2":
+                //     return "k";
+                //     break;
+                // case "3":
+                //     return "l";
+                //     break;
+                // case "4":
+                //     return "p";
+                //     break;
+                // case "5":
+                //     return "u";
+                //     break;
+                // case "6":
+                //     return "v";
+                //     break;
+                // case "7":
+                //     return "w";
+                //     break;
+                // case "8":
+                //     return "a";
+                //     break;
+                // case "9":
+                //     return "b";
+                //     break;
+                // case "0":
+                //     return "o";
+                //     break;
+                case "a":
+                    return "z";
+                    break;
+                case "b":
+                    return "y";
+                    break;
+                case "c":
+                    return "x";
+                    break;
+                case "d":
+                    return "w";
+                    break;
+                case "e":
+                    return "v";
+                    break;
+                case "f":
+                    return "u";
+                    break;
+                case "g":
+                    return "t";
+                    break;
+                case "h":
+                    return "s";
+                    break;
+                case "i":
+                    return "r";
+                    break;
+                case "j":
+                    return "q";
+                    break;
+                case "k":
+                    return "p";
+                    break;
+                case "l":
+                    return "o";
+                    break;
+                case "m":
+                    return "n";
+                    break;
+                case "n":
+                    return "m";
+                    break;
+                case "o":
+                    return "l";
+                    break;
+                case "p":
+                    return "k";
+                    break;
+                case "q":
+                    return "j";
+                    break;
+                case "r":
+                    return "i";
+                    break;
+                case "s":
+                    return "h";
+                    break;
+                case "t":
+                    return "g";
+                    break;
+                case "u":
+                    return "f";
+                    break;
+                case "v":
+                    return "e";
+                    break;
+                case "w":
+                    return "d";
+                    break;
+                case "x":
+                    return "c";
+                    break;
+                case "y":
+                    return "b";
+                    break;
+                case "z":
+                    return "a";
+                    break;
+                case " ":
+                    return "_";
+                    break;
+
+                    // case "A":
+                    //     return "Z";
+                    //     break;
+                    // case "B":
+                    //     return "Y";
+                    //     break;
+                    // case "C":
+                    //     return "X";
+                    //     break;
+                    // case "d":
+                    //     return "w";
+                    //     break;
+                    // case "e":
+                    //     return "v";
+                    //     break;
+                    // case "f":
+                    //     return "u";
+                    //     break;
+                    // case "g":
+                    //     return "t";
+                    //     break;
+                    // case "h":
+                    //     return "s";
+                    //     break;
+                    // case "i":
+                    //     return "r";
+                    //     break;
+                    // case "j":
+                    //     return "q";
+                    //     break;
+                    // case "k":
+                    //     return "p";
+                    //     break;
+                    // case "l":
+                    //     return "o";
+                    //     break;
+                    // case "m":
+                    //     return "n";
+                    //     break;
+                    // case "n":
+                    //     return "m";
+                    //     break;
+                    // case "o":
+                    //     return "l";
+                    //     break;
+                    // case "p":
+                    //     return "k";
+                    //     break;
+                    // case "q":
+                    //     return "j";
+                    //     break;
+                    // case "r":
+                    //     return "i";
+                    //     break;
+                    // case "s":
+                    //     return "h";
+                    //     break;
+                    // case "t":
+                    //     return "g";
+                    //     break;
+                    // case "u":
+                    //     return "f";
+                    //     break;
+                    // case "v":
+                    //     return "e";
+                    //     break;
+                    // case "w":
+                    //     return "d";
+                    //     break;
+                    // case "x":
+                    //     return "c";
+                    //     break;
+                    // case "y":
+                    //     return "b";
+                    //     break;
+                    // case "z":
+                    //     return "a";
+                    //     break;
+                case "?":
+                    return ".";
+                    break;
+                case ",":
+                    return "!";
+                    break;
+                    // case ",":
+                    //     return "?";
+                    //     break;
+                case ".":
+                    return ";";
+                    break;
+                    // case "/":
+                    //     return "(";
+                    //     break;
+                    // case "(":
+                    //     return "/";
+                    //     break;
+                    // case ")":
+                    //     return ";";
+                    //     break;
+                    // case ";":
+                    //     return ")";
+                    //     break;
+
+            }
+        }
+
+        function dec(x) {
+            switch (x) {
+                // case "g":
+                //     return "1";
+                //     break;
+                // case "k":
+                //     return "2";
+                //     break;
+                // case "l":
+                //     return "3";
+                //     break;
+                // case "p":
+                //     return "4";
+                //     break;
+                // case "u":
+                //     return "5";
+                //     break;
+                // case "v":
+                //     return "6";
+                //     break;
+                // case "w":
+                //     return "7";
+                //     break;
+                // case "a":
+                //     return "8";
+                //     break;
+                // case "b":
+                //     return "9";
+                //     break;
+                // case "o":
+                //     return "0";
+                //     break;
+                case "z":
+                    return "a";
+                    break;
+                case "y":
+                    return "b";
+                    break;
+                case "x":
+                    return "c";
+                    break;
+                case "w":
+                    return "d";
+                    break;
+                case "v":
+                    return "e";
+                    break;
+                case "u":
+                    return "f";
+                    break;
+                case "t":
+                    return "g";
+                    break;
+                case "s":
+                    return "h";
+                    break;
+                case "r":
+                    return "i";
+                    break;
+                case "q":
+                    return "j";
+                    break;
+                case "p":
+                    return "k";
+                    break;
+                case "o":
+                    return "l";
+                    break;
+                case "n":
+                    return "m";
+                    break;
+                case "m":
+                    return "n";
+                    break;
+                case "l":
+                    return "o";
+                    break;
+                case "k":
+                    return "p";
+                    break;
+                case "j":
+                    return "q";
+                    break;
+                case "i":
+                    return "r";
+                    break;
+                case "h":
+                    return "s";
+                    break;
+                case "g":
+                    return "t";
+                    break;
+                case "f":
+                    return "u";
+                    break;
+                case "e":
+                    return "v";
+                    break;
+                case "d":
+                    return "w";
+                    break;
+                case "c":
+                    return "x";
+                    break;
+                case "b":
+                    return "y";
+                    break;
+                case "a":
+                    return "z";
+                    break;
+                case "_":
+                    return " ";
+                    break;
+                case ".":
+                    return "?";
+                    break;
+                case "!":
+                    return ",";
+                    break;
+                case ";":
+                    return ".";
+                    break;
             }
         }
     </script>
-
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON</title>
-</head>
-
-<body>
-    <h1>JSON</h1>
-    <h2>JavaScript Object Notation</h2>
-    <ul id="users-container">
-
-    </ul>
-    <script>
-        const user = {
-            id: 245,
-            name: "Masud",
-            lover: {
-                name: "Jamila",
-                favoriteFood: "Pizza"
-            },
-            friendsAge: [12, 13, 14],
-            friends: ["Kamal", "Jamal", "Samal"]
-        };
-        const userJSON = JSON.stringify(user);
-        console.log(userJSON)
-        const userFromJSON = JSON.parse(userJSON);
-        console.log(userFromJSON);
-    </script>
-
-
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON</title>
-</head>
-
-<body>
-    <h1>JSON</h1>
-    <h2>JavaScript Object Notation</h2>
-    <ul id="users-container">
-
-    </ul>
-    <script>
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(json => displayUser(json))
-            .catch(error => console.log(error))
-
-        function displayUser(users) {
-            const userNames = users.map(user => user.username);
-            const ul = document.getElementById("users-container")
-
-            for (let i = 0; i < userNames.length; i++) {
-                const username = userNames[i]
-                const li = document.createElement("li")
-                li.innerText = username
-                ul.appendChild(li)
-            }
-        }
-    </script>
-
-</body>
-
-</html> -->
