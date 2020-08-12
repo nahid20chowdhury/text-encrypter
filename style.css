@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: repeating-linear-gradient(to right, rgb(255, 60, 0), rgb(247, 119, 0));
+    background-image: repeating-linear-gradient(to right, rgb(0, 225, 255), rgb(0, 177, 247));
 }
 
 #myinput {
@@ -30,19 +30,20 @@ body {
 
 button {
     margin: 10px auto 20px auto;
-    background-image: linear-gradient(to left, rgb(149, 255, 11), rgb(60, 255, 0));
+    background-image: linear-gradient(to right, rgb(255, 149, 11), rgb(255, 123, 0));
     border: none;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px gray;
     padding: 8px;
-    color: black;
+    color: white;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#result {
-    color: white;
-    font-size: 25px;
-    margin:
+input {
+    box-sizing: content-box;
+    height: 80px;
+    width: 600px;
 }
